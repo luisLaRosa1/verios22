@@ -1,0 +1,24 @@
+<div class="wrapper-login">
+    <img src="assets/images/logotipos/logotipo-zurich.svg" class="logo" alt="logo" />
+    <div class="form-holder">
+        <form class="form" autocomplete="off" [formGroup]="form" (ngSubmit)="submit_form()">
+            <div class="grid">
+                <div class="col-12">
+                    <p-floatLabel>
+                        <input class="w-full" pInputText id="usuario" formControlName="usuario" />
+                        <label for="usuario">Usuario</label>
+                    </p-floatLabel>
+                </div>
+                <div class="col-12">
+                    <p-floatLabel>
+                        <input class="w-full" pInputText id="password" formControlName="password" />
+                        <label for="password">Password</label>
+                    </p-floatLabel>
+                </div>
+                <div class="col-12 text-center">
+                    <p-button type="submit" label="Ingresar" [raised]="true" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
