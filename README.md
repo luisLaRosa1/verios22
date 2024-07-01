@@ -1,27 +1,48 @@
 # AppZurich
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+<h2 align="center">Presto | Zurich Santander </h2>
 
-## Development server
+## 🛠️ Instaladores - Herramientas requeridas para el desarrollo.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Nombre                                                            | Command |
+| :---------------------------------------------------------------- | :------ |
+| [Visual Studio Code](https://code.visualstudio.com/)              | -       |
+| [Node.js](https://nodejs.org/dist/v18.16.0/node-v18.16.0-x64.msi) | -       |
+| [Git](https://git-scm.com/download/win)                           | \_      |
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## 🛠️ Docs - Desarrollo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Nombre                                                            
+| -----------------------------------------------------------------
+| [PrimeFLEX - Design](https://primeflex.org/width)              
+| [PrimeNG - Design](https://primeng.org/autocomplete) 
+| [Angular 17](https://angular.dev/)                                 
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🛠️ Iniciar aplicación (Development)
 
-## Running end-to-end tests
+Se requiere tener en ejecución los siguientes proyectos:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+|   Aplicación  |              Url                    |
+| ------------- | ----------------------------------  |
+| [Api Backend] | `http://localhost:5020/swagger`     |
 
-## Further help
+Para iniciar la aplicación se necesita ejecutar alguno de estos comandos:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm start
+
+ng serve --port 2053 -o
+```
+
+## 🛠️ Despliegue
+
+Obtener el compilado del aplicativo para publicar en otro ambiente:
+
+| Ambiente | Comando              |
+| :------- | :------------------- |
+| DEV      | `npm run deploy_dev` |
+| QA       | `npm run deploy_qa`  |
+| PROD     | `npm run deploy_pro` |

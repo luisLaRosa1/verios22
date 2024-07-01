@@ -1,6 +1,6 @@
 <div class="layout-sidebar" [ngStyle]="{'width': expanded ? '300px' : '80px'}">
     <ul class="layout-menu">
-        @for (item of lstMenu; track $index) {
+        @for (item of lstMenu(); track $index) {
           @if (expanded) {
             <span class="sub-title">- {{ item.label }}</span>
           }

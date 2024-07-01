@@ -1,0 +1,132 @@
+<app-titulo [titulo]="this.titulo" [breadcrumbs]="this.breadcrumbs"></app-titulo>
+<p-toast />
+<p-confirmDialog />
+<div class="grid">
+    <div class="sm:col-12 md:col-6">
+        <div class="grid">
+            <div class="col-6">
+                <p-floatLabel>
+                    <p-inputNumber [(ngModel)]="numero_tarifas" (ngModelChange)="blur_numero_tarifas()" min="0"
+                        [max]="maximo_tarifas" [locale]="this.locale" />
+                    <label>Número de tarifas</label>
+                </p-floatLabel>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="col-12">
+                <p-table [value]="tarifas()">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Descripción</th>
+                            <th class="text-right">Tarifa</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-tarifa let-editing="editing">
+                        <tr>
+                            <td class="w-9">
+                                {{tarifa.descripcion}}
+                            </td>
+                            <td class="text-right" [pEditableColumn]="tarifa.tarifa" pEditableColumnField="tarifa">
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <p-inputNumber class="p-inputtext-sm" [maxFractionDigits]="4"
+                                            (onBlur)="set_total_tarifas()" [locale]="this.locale" min="0"
+                                            [(ngModel)]="tarifa.tarifa" />
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{ tarifa.tarifa }}
+                                    </ng-template>
+                                </p-cellEditor>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                @if (tarifas().length==0) {
+                <div class="col-12 text-center">
+                    <label>No existen tarifas registradas en el sistema</label>
+                </div>
+                }
+                @if(this.total_tarifas){
+                <div class="col-12 text-right">
+                    <label class="font-bold	">Total: {{this.total_tarifas}}</label>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="sm:col-12 md:col-6">
+        <div class="grid mt-6">
+            <div class="col-12">
+                <p-table [value]="tarifas_metricas()">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="w-3 text-right">Fallecimiento</th>
+                            <th class="w-3 text-right">Invalidez</th>
+                            <th class="w-3 text-right">Desempleo</th>
+                            <th class="w-3 text-right">Total</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-element let-editing="editing">
+                        <tr>
+                            <td class="w-3 text-right" [pEditableColumn]="element.fallecimiento"
+                                pEditableColumnField="fallecimiento">
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <p-inputNumber class="p-inputtext-sm" [maxFractionDigits]="4"
+                                            (onBlur)="set_total_tarifas_metricas()" [locale]="this.locale" min="0"
+                                            [(ngModel)]="element.fallecimiento" />
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{ element.fallecimiento }}
+                                    </ng-template>
+                                </p-cellEditor>
+                            </td>
+
+                            <td class="w-3 text-right" [pEditableColumn]="element.invalidez"
+                                pEditableColumnField="invalidez">
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <p-inputNumber class="p-inputtext-sm" [maxFractionDigits]="4"
+                                            (onBlur)="set_total_tarifas_metricas()" [locale]="this.locale" min="0"
+                                            [(ngModel)]="element.invalidez" />
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{ element.invalidez }}
+                                    </ng-template>
+                                </p-cellEditor>
+                            </td>
+
+                            <td class="w-3 text-right" [pEditableColumn]="element.desempleo"
+                                pEditableColumnField="desempleo">
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <p-inputNumber class="p-inputtext-sm" [maxFractionDigits]="4"
+                                            (onBlur)="set_total_tarifas_metricas()" [locale]="this.locale" min="0"
+                                            [(ngModel)]="element.desempleo" />
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{ element.desempleo }}
+                                    </ng-template>
+                                </p-cellEditor>
+                            </td>
+
+                            <td class="w-3 text-right font-bold">
+                                {{total_tarifas_metricas.toFixed(4)}}
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="col-12 text-right">
+            <p-button (onClick)="click_guardar()" label="Guardar" class="mr-2" />
+            <p-button (onClick)="click_cancelar()" label="Cancelar" [severity]="'danger'" />
+
+        </div>
+    </div>
+</div>

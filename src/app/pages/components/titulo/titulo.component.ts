@@ -17,7 +17,7 @@ export class TituloComponent implements OnInit {
   home: MenuItem | undefined;
 
   breadcrumbs = input<MenuItem[]>();
-  titulo = input<string>();
+  titulo = input.required<string>();
 
   ngOnInit(): void {
     this.home = { icon: 'pi pi-home', routerLink: '/dashboard' };
