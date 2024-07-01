@@ -19,4 +19,6 @@ import { FooterBarComponent } from './footer-bar/footer-bar.component';
     styleUrl: './layout.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent { }
+export class LayoutComponent {
+  expanded = true;
+}

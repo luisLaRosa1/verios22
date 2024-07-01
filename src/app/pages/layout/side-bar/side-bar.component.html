@@ -1,7 +1,23 @@
-<div class="layout-sidebar">
+<div class="layout-sidebar" [ngStyle]="{'width': expanded ? '300px' : '80px'}">
     <ul class="layout-menu">
         @for (item of lstMenu; track $index) {
-        
+          @if (expanded) {
+            <span class="sub-title">- {{ item.label }}</span>
+          }
+          @for (child of item.items; track $index ) {
+            <a
+              [routerLink]="child.routerLink"
+              class="sidebar-menu-link"
+              [ngStyle]="{'padding': expanded ? '1rem' : '1rem'}"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
+              <i class="{{ child.icon }}"></i>
+              @if (expanded) {
+                <span class="title">{{ child.label }}</span>
+              }
+            </a>
+          }
         }
     </ul>
 </div>

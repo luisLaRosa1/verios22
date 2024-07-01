@@ -1,18 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {RouterLink, RouterLinkActive} from "@angular/router";
+
+
+interface Menu {
+  label: string;
+  items: MenuItem[] | []
+}
+
+interface MenuItem {
+  label: string;
+  icon: string;
+  routerLink: string[];
+  routerLinkActiveOptions?: any;
+}
 
 @Component({
   selector: 'app-side-bar',
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class SideBarComponent {
-  lstMenu: any = [{
+  @Input() expanded!: boolean;
+  lstMenu: Menu[] = [{
     label: 'Home',
     items: [
       { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
