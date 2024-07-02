@@ -3,8 +3,6 @@
 @import "./assets/scss/variables";
 
 
-
-
 .p-breadcrumb {
     background: #ffffff;
     border: 0px solid #e5e5e5;
@@ -35,4 +33,10 @@
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.button-login {
+    background-color: #000;
+    color: #ffffff;
+    width: 100%;
 }
