@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/authentication/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TarifasComponent } from './pages/reglas/tarifas/tarifas.component';
+import {QeqComponent} from "./pages/reglas/qeq/qeq.component";
 
 export const routes: Routes = [
     {
@@ -15,9 +16,8 @@ export const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            {
-                path: 'dashboard', component: DashboardComponent
-            }
+            {path: 'dashboard', component: DashboardComponent},
+            {path: 'cargaMasivaQeQ', component: QeqComponent,}
         ]
     },
 

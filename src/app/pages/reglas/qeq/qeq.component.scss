@@ -1,0 +1,16 @@
+.input-box {
+  max-width: 600px;
+  width: 100%;
+
+  .wrapper {
+    i {
+      position: absolute;
+      right: 20px;
+      top: 30%;
+    }
+  }
+
+  input {
+    margin-bottom: .5rem;
+  }
+}
